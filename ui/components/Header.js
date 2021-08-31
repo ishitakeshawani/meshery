@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import NoSsr from '@material-ui/core/NoSsr';
 import Link from 'next/link';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { Badge } from '@material-ui/core';
 import MesheryNotification from './MesheryNotification';
 import User from './User';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -66,7 +67,7 @@ const styles = (theme) => ({
 class Header extends React.Component {
   render() {
     const {
-      classes, title, onDrawerToggle ,onDrawerCollapse
+      classes, title, onDrawerToggle ,onDrawerCollapse ,isBeta
     } = this.props;
     return (
       <NoSsr>
@@ -94,6 +95,11 @@ class Header extends React.Component {
                   <Typography color="inherit" variant="h5" className={classes.pageTitle}>
                     {title}
                   </Typography>
+                  {isBeta ?
+                    <Badge style={{ color : "#6200EE",background : "#979797", margin : "8px",padding : "8px",border : "2px solid primary",borderRadius : "15px",width : "54px",height : "34px"
+                    }}>
+                  Beta
+                    </Badge> :" "}
                 </Grid>
 
                 {/* <Grid item className={classes.notifications}>
@@ -198,7 +204,7 @@ Header.propTypes = { classes : PropTypes.object.isRequired,
 const mapStateToProps = (state) =>
   // console.log("header - mapping state to props. . . new title: "+ state.get("page").get("title"));
   // console.log("state: " + JSON.stringify(state));
-  ({ title : state.get('page').get('title') })
+  ({ title : state.get('page').get('title'), isBeta : state.get('page').get('isBeta') })
 ;
 
 // const mapDispatchToProps = dispatch => {

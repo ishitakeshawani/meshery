@@ -323,6 +323,7 @@ const categories = [
         title : "Applications",
         show : true,
         link : true,
+        isBeta : true,
       },
       {
         id : "Filters",
@@ -331,6 +332,7 @@ const categories = [
         title : "Filters",
         show : true,
         link : true,
+        isBeta : true,
       },
       {
         id : "Patterns",
@@ -339,6 +341,7 @@ const categories = [
         title : "Patterns",
         show : false,
         link : true,
+        isBeta : true,
       },
     ],
   },
@@ -588,20 +591,20 @@ class Navigator extends React.Component {
       st.mts = meshAdaptersts;
     }
 
-    const fetchNestedPathAndTitle = (path, title, href, children) => {
+    const fetchNestedPathAndTitle = (path, title, href, children,isBeta) => {
       if (href === path) {
-        props.updatepagetitle({ title });
+        props.updatepagetitle({ title, isBeta });
         return;
       }
       if (children && children.length > 0) {
-        children.forEach(({ title, href, children }) => {
-          fetchNestedPathAndTitle(path, title, href, children);
+        children.forEach(({ title, href, children,isBeta }) => {
+          fetchNestedPathAndTitle(path, title, href, children,isBeta);
         });
       }
     };
 
-    categories.forEach(({ title, href, children }) => {
-      fetchNestedPathAndTitle(path, title, href, children);
+    categories.forEach(({ title, href, children,isBeta }) => {
+      fetchNestedPathAndTitle(path, title, href, children,isBeta);
     });
     st.path = path;
     return st;

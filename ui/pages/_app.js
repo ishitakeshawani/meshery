@@ -173,7 +173,8 @@ class MesheryApp extends App {
     this.pageContext = getPageContext();
 
     this.state = { mobileOpen : false,
-      isDrawerCollapsed : false };
+      isDrawerCollapsed : false ,
+    };
   }
 
   handleDrawerToggle = () => {
@@ -336,7 +337,7 @@ class MesheryApp extends App {
                     maxSnack={10}
                   >
                     <MesheryProgressBar />
-                    <Header onDrawerToggle={this.handleDrawerToggle} onDrawerCollapse={isDrawerCollapsed}/>
+                    <Header onDrawerToggle={this.handleDrawerToggle} onDrawerCollapse={isDrawerCollapsed} />
                     <main className={classes.mainContent}>
                       <MuiPickersUtilsProvider utils={MomentUtils}>
                         <Component pageContext={this.pageContext} {...pageProps} />

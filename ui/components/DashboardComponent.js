@@ -882,13 +882,13 @@ class DashboardComponent extends React.Component {
       if (release_channel === "edge")
         return (
           <Link href="https://docs.meshery.io/project/releases" target="_blank">
-            <OpenInNewIcon style={{ height: "1rem", width: "1rem" }} />
+            <OpenInNewIcon style={{ height : "1rem", width : "1rem" }} />
           </Link>
         );
 
       return (
         <Link href={`https://docs.meshery.io/project/releases/${build}`} target="_blank">
-          <OpenInNewIcon style={{ height: "1rem", width: "1rem" }} />
+          <OpenInNewIcon style={{ height : "1rem", width : "1rem" }} />
         </Link>
       );
     };
@@ -902,9 +902,9 @@ class DashboardComponent extends React.Component {
               {capitalize(this.state.versionDetail.release_channel)}
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6} style={{ padding: "0" }}>
-            <Typography style={{ fontWeight: "bold", paddingBottom: "4px" }}>Version</Typography>
-            <Typography style={{ paddingTop: "2px", paddingBottom: "8px" }}>
+          <Grid item xs={12} md={6} style={{ padding : "0" }}>
+            <Typography style={{ fontWeight : "bold", paddingBottom : "4px" }}>Version</Typography>
+            <Typography style={{ paddingTop : "2px", paddingBottom : "8px" }}>
               {getMesheryVersionText()}
               {openReleaseNotesInNew()}
             </Typography>
