@@ -32,7 +32,9 @@ const styles = (theme) => ({
     paddingRight : theme.spacing(0),
     marginLeft : theme.spacing(4), },
   userContainer : { paddingLeft : 1,
-    display : 'flex', },
+    display : 'flex' },
+  badge : { color : '#6200EE',background : '#979797', margin : '8px',padding : '8px',border : '2px solid primary',borderRadius : '15px',width : 'auto',height : '2rem'
+  },
   userSpan : { marginLeft : theme.spacing(1), },
   pageTitleWrapper : { flexGrow : 1,
     marginRight : 'auto', },
@@ -96,10 +98,8 @@ class Header extends React.Component {
                     {title}
                   </Typography>
                   {isBeta ?
-                    <Badge style={{ color : "#6200EE",background : "#979797", margin : "8px",padding : "8px",border : "2px solid primary",borderRadius : "15px",width : "54px",height : "34px"
-                    }}>
-                  Beta
-                    </Badge> :" "}
+                    <Badge className={classes.badge}>
+                  Beta</Badge> :" "}
                 </Grid>
 
                 {/* <Grid item className={classes.notifications}>
